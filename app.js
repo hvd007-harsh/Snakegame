@@ -4,10 +4,10 @@ const bcrypt = require('bcrypt');
 const bodyparser = require('body-parser');
 const user = require('./model/usermodel');
 const cons = require('consolidate');
-const PORT = 5000 || process.env.PORT;
+const PORT = process.env.PORT;
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost:27017/snakegame",()=>{
+mongoose.connect("mongodb+srv://Todolist:Todolist123@todolistapp.7xgc9.mongodb.net/?retryWrites=true&w=majority",()=>{
     console.log('Server is Connected');
 })
 
