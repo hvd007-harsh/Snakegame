@@ -1,0 +1,73 @@
+body{
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times,serif;
+    font-size: x-large;
+    text-align: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    font-weight: 400;
+}
+
+.container{
+    display: flex;
+    border-bottom: 2px solid blue;
+    flex-direction: column;
+    margin-top: auto;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+}
+.form{
+    padding: 10px;
+}
+.form-group{
+    padding: 0.9em;
+}
+.btn{
+   color: black;
+   background-color: grey;
+   padding: 0.1em;
+   transition: all 3s ease-in ease-out;
+}
+.btn:hover{
+    transform: scale(1.5);
+}
+
+h2{
+    position: relative;
+    padding: 0;
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    color: #080808;
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+.seven h1 {
+    text-align: center;
+        font-size:30px; font-weight:300; color:rgb(43, 51, 203); letter-spacing:1px;
+        text-transform: uppercase;
+    
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        grid-template-rows: 27px 0;
+        grid-gap: 20px;
+        align-items: center;
+    }
+    
+    .seven h1:after,.seven h1:before {
+        content: " ";
+        display: block;
+        border-bottom: 1px solid #0839ff;
+        border-top: 1px solid #0839ff;
+        height: 5px;
+      background-color:#0000;
+    }
+.icon{
+    width: 100px;
+    height: 100px;
+}
+    
