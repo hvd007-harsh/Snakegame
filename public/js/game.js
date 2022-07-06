@@ -11,21 +11,19 @@ function main(currentTime){
   if(gameOver){
     if(confirm("You lossed press Ok to restart")){
       let score = sessionStorage.getItem('score');
-    if(localStorage.getItem('HighScore')===NULL){
+      let HighScore = localStorage.getItem('Highscore');
+    if(HighScore === null || score >=HighScore){
+       alert(score);
       localStorage.setItem('HighScore',score);
-      sessionStorage.removeItem('score');
-      window.location = '/snakegame';
-    }
-    if(score > localStorage.getItem('HighScore')){
-      localStorage.setItem('HighScore',score);
-      sessionStorage.removeItem('score');
-      window.location = '/snakegame';
+      sessionStorage.setItem('score',0);
+      window.location.reload();
+    }else{
+      sessionStorage.setItem('score',0);
+      window.location.reload();
     }
     
-    sessionStorage.removeItem('score');
-    window.location = '/snakegame';
-    }
-    return 
+  }
+    return
   }
   window.requestAnimationFrame(main);
     if(secondSinceLastRender < 1/ SNAKE_SPEED) return   

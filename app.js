@@ -4,10 +4,11 @@ const bcrypt = require('bcrypt');
 const bodyparser = require('body-parser');
 const user = require('./model/usermodel');
 const cons = require('consolidate');
+
 const PORT = 5000 || process.env.PORT;
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb+srv://Todolist:Todolist123@todolistapp.7xgc9.mongodb.net/?retryWrites=true&w=majority",()=>{
+mongoose.connect("mongodb+srv://Snakegame:Snakegameplay2help@cluster0.xbzsl.mongodb.net/?retryWrites=true&w=majority",()=>{
     console.log('Server is Connected');
 })
 
@@ -36,7 +37,7 @@ app.post('/register',(req,res)=>{
     name = name.trim();
     pass= pass.trim();
  user.find({email},(err,data)=>{
-    if(data){
+    if(data[0]){
         console.log("data")
         res.redirect('/register');
     }
@@ -63,15 +64,22 @@ app.post('/register',(req,res)=>{
 })
 
 app.post('/',(req,res)=>{
-    const {name,pass} = req.body;
-    user.findOne({name},(err,data)=>{
-    var check = bcrypt.compare(pass,data.pass);     
+try {
+    let {name,pass} = req.body;
+    name = name.trim();
+    pass = pass.trim();
+    user.findOne({name},async(err,data)=>{
+    var check = await bcrypt.compare(pass,data.pass);     
       if(check){
          res.redirect('/snakegame');
       }else{
           res.redirect('/');
       }
     })
+} catch (error) {
+    console.log(error);
+}
+   
 })
 app.listen(PORT,()=>{
     console.log(`Listening on ${PORT}`);
