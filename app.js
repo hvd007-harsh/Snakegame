@@ -5,7 +5,7 @@ const bodyparser = require('body-parser');
 const user = require('./model/usermodel');
 const cons = require('consolidate');
 
-const PORT = 5000 || process.env.PORT;
+const PORT =  process.env.PORT;
 const mongoose = require('mongoose');
 
 mongoose.connect("mongodb+srv://Snakegame:Snakegameplay2help@cluster0.xbzsl.mongodb.net/?retryWrites=true&w=majority",()=>{
@@ -31,7 +31,6 @@ app.get('/snakegame',(req,res)=>{
 })
 
 app.post('/register',(req,res)=>{
-    try{
     let{email,name,pass}= req.body;
     email = email.trim();
     name = name.trim();
@@ -57,14 +56,10 @@ app.post('/register',(req,res)=>{
     }
        
  })
-}catch(err){
-    console.log(err);
-}
  
 })
 
 app.post('/',(req,res)=>{
-try {
     let {name,pass} = req.body;
     name = name.trim();
     pass = pass.trim();
@@ -76,10 +71,6 @@ try {
           res.redirect('/');
       }
     })
-} catch (error) {
-    console.log(error);
-}
-   
 })
 app.listen(PORT,()=>{
     console.log(`Listening on ${PORT}`);
